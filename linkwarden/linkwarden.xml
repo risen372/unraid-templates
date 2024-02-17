@@ -1,3 +1,19 @@
+
+Dashboard
+Main
+Shares
+Users
+Settings
+Plugins
+Docker
+VMs
+Apps
+Stats
+Tools
+Update Container
+
+XML
+
 <?xml version="1.0"?>
 <Container version="2">
   <Name>linkwarden</Name>
@@ -8,7 +24,7 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support/>
-  <Project/>
+  <Project>https://linkwarden.app/</Project>
   <Overview>**** Prerequisites - postgresql db installed and set up with a database for linkwarden to use****&#xD;
 &#xD;
 Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages. &#xD;
@@ -17,14 +33,14 @@ Linkwarden also saves a copy of each webpage as a Screenshot and PDF, ensuring a
 Additionally, Linkwarden is designed with collaboration in mind, sharing links with the public and/or allowing multiple users to work together seamlessly.&#xD;
 &#xD;
 </Overview>
-  <Category/>
+  <Category>Cloud: Productivity:</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
   <TemplateURL/>
   <Icon>https://docs.linkwarden.app/img/logo.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1708207380</DateInstalled>
+  <DateInstalled>1708207719</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
@@ -33,3 +49,10 @@ Additionally, Linkwarden is designed with collaboration in mind, sharing links w
   <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Port to use for WeUI" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
   <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] " Mode="" Description="postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] &#13;&#10;Replace the following =&#13;&#10;[Username] - Username for database,&#13;&#10;[Password] - Password for database,&#13;&#10;[Database_IP] - IP address for database can also use localhost,&#13;&#10;[Port] - Port of database,&#13;&#10;[Database] - Name of database" Type="Variable" Display="always" Required="true" Mask="false">postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] </Config>
 </Container>
+
+COMMAND:
+
+/usr/local/emhttp/plugins/dynamix.docker.manager/scripts/docker create --name='linkwarden' --net='bridge' -e TZ="America/New_York" -e HOST_OS="Unraid" -e HOST_HOSTNAME="Unraid-Server" -e HOST_CONTAINERNAME="linkwarden" -e 'NEXTAUTH_URL'='http://localhost:3000/api/v1/auth' -e 'NEXTAUTH_SECRET'='Password' -e 'DATABASE_URL'='postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] ' -l net.unraid.docker.managed=dockerman -l net.unraid.docker.webui='http://[IP]:[PORT:3000]' -l net.unraid.docker.icon='https://docs.linkwarden.app/img/logo.png' -p '3000:3000/tcp' 'ghcr.io/linkwarden/linkwarden:main' 
+
+
+Array Started•Parity-Sync 89.4 %88 °F86 °FUnraid® webGui ©2024, Lime Technology, Inc. manual
