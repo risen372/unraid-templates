@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>linkwarden</Name>
+  <Repository>ghcr.io/linkwarden/linkwarden:main</Repository>
+  <Registry>https://github.com/linkwarden/linkwarden</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>**** Prerequisites - postgresql db installed and set up with a database for linkwarden to use****&#xD;
+&#xD;
+Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages. &#xD;
+The objective is to organize useful webpages and articles you find across the web in one place, and since useful webpages can go away. &#xD;
+Linkwarden also saves a copy of each webpage as a Screenshot and PDF, ensuring accessibility even if the original content is no longer available. &#xD;
+Additionally, Linkwarden is designed with collaboration in mind, sharing links with the public and/or allowing multiple users to work together seamlessly.&#xD;
+&#xD;
+</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://docs.linkwarden.app/img/logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1708207380</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="NEXTAUTH_URL" Target="NEXTAUTH_URL" Default="http://localhost:3000/api/v1/auth" Mode="" Description="This should be changed to your domian name if hosting linkwarden." Type="Variable" Display="always" Required="false" Mask="false">http://localhost:3000/api/v1/auth</Config>
+  <Config Name="NEXTAUTH_SECRET" Target="NEXTAUTH_SECRET" Default="Password" Mode="" Description="Enter an admin password here" Type="Variable" Display="always" Required="true" Mask="false">Password</Config>
+  <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Port to use for WeUI" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
+  <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] " Mode="" Description="postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] &#13;&#10;Replace the following =&#13;&#10;[Username] - Username for database,&#13;&#10;[Password] - Password for database,&#13;&#10;[Database_IP] - IP address for database can also use localhost,&#13;&#10;[Port] - Port of database,&#13;&#10;[Database] - Name of database" Type="Variable" Display="always" Required="true" Mask="false">postgresql://[USERNAME]:[PASSWORD]@[DATABASE_IP]:[PORT]/[DATABASE] </Config>
+</Container>
